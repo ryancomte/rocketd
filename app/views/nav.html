@@ -1,0 +1,18 @@
+<nav class="top-bar"  data-topbar>
+    <div class="nav-container">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a ui-sref="dashboard">Rocket'd</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li ng-repeat="menuItems in nav"><a ui-sref-active="active" ui-sref="{{menuItems}}">{{menuItems}}</a></li>
+        </ul>
+    </section>
+    </div>
+</nav>

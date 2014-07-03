@@ -1,0 +1,45 @@
+<div class="row">
+    <h3>Debt Information</h3>
+    <div class="without-payments large-6 columns" ng-hide="debts.length == 0">
+        <h5>Without Rocket'd Payments</h5>
+        <table>
+            <thead>
+            <tr>
+                <th>Loan Name</th>
+                <th># of Payments</th>
+                <th>Total Paid</th>
+                <th>Interest Paid</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="debt in debts">
+                <td>{{debt.name}}</td>
+                <td>{{debt.months}}</td>
+                <td>${{debt.totalPaid}}</td>
+                <td>${{debt.interestPaid}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="with-payments large-6 columns" ng-show="debts.length > 1">
+        <h5>With Rocket'd Payments</h5>
+        <table>
+            <thead>
+            <tr>
+                <th>Loan Name</th>
+                <th># of Payments</th>
+                <th>Total Paid</th>
+                <th>Interest Paid</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="debt in debts">
+                <td>{{debt.name}}</td>
+                <td>{{debt.months}}</td>
+                <td>${{debt.totalPaid}}</td>
+                <td>${{debt.interestPaid}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

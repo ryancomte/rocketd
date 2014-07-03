@@ -1,0 +1,65 @@
+
+<div class="row">
+    <div class="add-debt" ng-show="showForm || showForm && currDebt.name">
+        <form>
+            <div class="large-3 columns">
+               <input id="name" type="text" ng-model="currDebt.name" placeholder="Creditor Name" required>
+                <label for="name">Creditor Name</label>
+            </div>
+            <div class="large-3 columns">
+                <input id="balance" type="text" ng-model="currDebt.balance" placeholder="Balance of Loan" required>
+                <label for="balance">Balance on Loan</label>
+            </div>
+            <div class="large-3 columns">
+                <input id="payment"  type="text" ng-model="currDebt.payment" placeholder="Monthly Payment" required>
+                <label for="payment">Monthly Payment</label>
+            </div>
+            <div class="large-3 columns">
+                <input id="percentage"  type="text" ng-model="currDebt.percentage" placeholder="Percentage Rate" required>
+                <label for="percentage">Percentage Rate</label>
+            </div>
+        </form>
+    </div>
+
+    <div class="row buttons">
+        <a ng-show="showForm" ng-click="submitDebt()" class="primary-btn button">Submit</a>
+        <a ng-show="showForm" ng-click="showForm = false" class="cnl-btn button">Cancel</a>
+        <a ng-hide="showForm || showForm && currDebt.name" ng-click="showForm = true; easterEgg()" class="secondary-btn button">Add Debt</a>
+        <input class="large-4 small-12" type="search" ng-model="searchDebts" placeholder="Find Debts">
+    </div>
+    <div class="row">
+        <div class="debts-container">
+            <div class="debts-list">
+                <div class="debt-info large-4 small-12" ng-repeat="debt in debts | filter: searchDebts">
+                    <h5>{{debt.name}}</h5>
+                    <div class="control-panel">
+                        <i class="fa fa-times-circle pull-right" ng-click="deleteDebt(debt._id)"></i>
+                        <i class="fa fa-pencil-square-o pull-right" ng-click="editDebt(debt)"></i>
+                    </div>
+                    <div class="pointer"></div>
+                    <div class="debt-content">
+                        <div class="top-content">
+                            <div class="large-4">
+                                <p><em>Balance</em> ${{debt.balance}}</p>
+                            </div>
+                            <div class="large-4">
+                                <p><em>Payment</em> ${{debt.payment}}</p>
+                            </div>
+                            <div class="large-4">
+                                <p><em>PR%</em> {{debt.percentage}}%</p>
+                            </div>
+                        </div>
+                        <div class="bottom-content">
+                            <div class="large-6">
+                                <p><em>Paid</em>{{debt.paidIn}}</p>
+                            </div>
+                            <div class="large-6">
+                                <p><em>Pay Off Date</em> {{debt.payOffDate}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

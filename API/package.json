@@ -1,0 +1,9 @@
+{
+    "name": "Rocketd",
+    "version": "0.0.1",
+    "dependencies": {
+        "mongoose": "*",
+        "express" : "*"
+    }
+
+}
